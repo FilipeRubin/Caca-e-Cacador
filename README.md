@@ -3,6 +3,9 @@ Made by Filipe Rubin and Felipe Brocker.
 
 Caça e Caçador (**Hunt and Hunter** in english) is a simple OpenGL project containing simple concepts about Artificial Intelligence and State Machines.
 
+# Diagram
+![Diagram](Images/diagrama.png)
+
 # Technical breakdown
 The scenario of the simulation is made out of a 30x30 cell grid where each cell contains a pointer. This pointer can be a `nullptr` (empty cell) or a valid pointer to an object of type `Entity`.
 ```C++
