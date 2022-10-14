@@ -108,3 +108,4 @@ When every prey is hunt, the simulation ends its loop and a little window shows 
 
 # How to setup
 If you are using Visual Studio 2019, you can just execute the solution file. If you are using any other version of Visual Studio, just make sure to change the `Platform Toolset` and `Windows SDK Version` to the appropriate versions. **Make sure to always compile in x86!!!**
+If you are using any other compiler, make sure to compile all of the source files contained on the [Source](Caca-e-Cacador/Source) folder, include the headers on the [include](Caca-e-Cacador/include) folder and link the libraries on the [lib](Caca-e-Cacador/lib) folder.
