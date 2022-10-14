@@ -105,3 +105,6 @@ When every prey is hunt, the simulation ends its loop and a little window shows 
 
 # Final result
 ![Image](Images/simulation.png)
+
+# How to setup
+If you are using Visual Studio 2019, you can just execute the solution file. If you are using any other version of Visual Studio, just make sure to change the `Platform Toolset` and `Windows SDK Version` to the appropriate versions. **Make sure to always compile in x86!!!**
