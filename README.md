@@ -35,6 +35,10 @@ public:
     virtual void Move(Entity* grid[30][30]) = 0;
 };
 ```
+
+### Prey
+The prey is a type of Entity that moves to one of the 8 neighbor cells (if available). It has a 50% chance to move away from the hunter and 50% chance to move randomly (even away from the hunter, if lucky).
+It also contains a member variable to check if it's alive or not. As all of the preys will be stored in the same array later, it's preffered to not be deleted from memory when dead, we'd rather just stop rendering and interacting as we'll free up the memory when the application reaches the end.
 ```C++
 class Prey : public Entity
 {
@@ -50,6 +54,13 @@ public:
     void Die();
 };
 ```
+
+### Hunter
+The hunter has the goal to hunt all of the preys. It contains a state machine and has an unique way of moving, As for the state machine, it contains only two states: `STATE::PATROL` and `STATE::MOVING`:
+* `STATE::PATROL` is bound when there's no prey at the hunter's sighting range. Each step the hunter rotates or moves randomly.
+* `STATE::PURSUE` is bound when `m_pTarget != nullptr`. Each step the hunter moves in the direction of the targeted prey.
+
+When the hunter detects a prey on one of the 8 neighbor cells, it kills it instantly no matter the current state.
 ```C++
 class Hunter : public Entity
 {
