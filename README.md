@@ -37,7 +37,7 @@ public:
 ```
 
 ### Prey
-The prey is a type of Entity that moves to one of the 8 neighbor cells (if available). It has a 50% chance to move away from the hunter and 50% chance to move randomly (even away from the hunter, if lucky).
+The prey is a type of Entity that moves to one of the 8 neighbor cells (if available). It has a 10% chance to move away from the hunter and 90% chance to move randomly (even away from the hunter, if lucky) making it appear random but evasive at the same time.
 It also contains a member variable to check if it's alive or not. As all of the preys will be stored in the same array later, it's preffered to not be deleted from memory when dead, we'd rather just stop rendering and interacting as we'll free up the memory when the application reaches the end.
 ```C++
 class Prey : public Entity
@@ -90,3 +90,10 @@ public:
     void Move(Entity* grid[30][30]) override;
 };
 ```
+
+# Simulation start, loop and finish
+When the simulation starts, the hunter is instantiated and bound to a random location in the grid. After that, all of the preys are dynamically created (as there are 5 to 10 preys, the compiler can't know how much) and then bound to a random location in the grid, always avoiding to be placed in the same cell as the hunter or its prey mates.
+
+When the application enters the main loop, it waits for 3 seconds and then the simulation begins, counting each movement as a "step" and storing the total amount of steps in a variable named `stepCount`. Every 0.2 seconds, a new step occurs (can be tweaked in code). Each step calls `Entity::Move()` on every entity and each frame (independent of steps) calls `Entity::Render()` on every entity.
+
+When every prey is hunt, the simulation ends its loop and a little window shows up informing the user about the `stepCount`.
