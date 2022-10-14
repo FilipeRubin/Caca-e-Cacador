@@ -102,3 +102,6 @@ When the simulation starts, the hunter is instantiated and bound to a random loc
 When the application enters the main loop, it waits for 3 seconds and then the simulation begins, counting each movement as a "step" and storing the total amount of steps in a variable named `stepCount`. Every 0.2 seconds, a new step occurs (can be tweaked in code). Each step calls `Entity::Move()` on every entity and each frame (independent of steps) calls `Entity::Render()` on every entity.
 
 When every prey is hunt, the simulation ends its loop and a little window shows up informing the user about the `stepCount`.
+
+# Final result
+![Image](Images/simulation.png)
