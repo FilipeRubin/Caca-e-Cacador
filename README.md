@@ -43,6 +43,7 @@ private:
 public:
     static unsigned int s_aliveCount;
     static Hunter* s_pHunter;
+public:
     Prey(int x = 0.0f, int y = 0.0f);
     void Render() const override;
     void Move(Entity* grid[30][30]) override;
