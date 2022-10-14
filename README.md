@@ -1,5 +1,6 @@
 # Caça e Caçador
 Made by Filipe Rubin and Felipe Brocker.
+
 Caça e Caçador (**Hunt and Hunter** in english) is a simple OpenGL project containing simple concepts about Artificial Intelligence and State Machines.
 
 # Technical breakdown
