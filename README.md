@@ -20,6 +20,12 @@ void main()
 ```
 We've made each square drawn to be of contrasting colors so it looks like a checkboard. But a screen filled with contrasting squares can be annoying to look at, so we've drawn it using `GL_LINE_LOOP` instead of `GL_TRIANGLE_FAN`.
 
+After sucessfully drawing the grid, we've created classes to represent the entities (explained below).
+
+The first entity we've programmed is the prey. The prey had at first a random movement, which is a pretty good start. We then started programming the hunter and its unique way of moving. When a hunter is close enough to a prey, it kills it.
+
+After both prey and hunter entities are working fine, we've started working on the AI of the hunter. The AI itself is a state machine with two-states: when the hunter is patrolling, it randomly chooses between rotating or moving forward. When a prey enters the visible range of the hunter (5 cells forward of the facing direction) it becomes the current target of the hunter. When the hunter has a target, its state becomes "pursuit". When the hunter is pursuiting a prey, it moves in its direction until it kills it. When its target is killed, the hunter can both start pursuiting another prey (if there's another one at range) or go back to patrol state.
+
 # Diagram
 ![Diagram](Images/diagrama.png)
 
