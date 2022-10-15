@@ -3,6 +3,23 @@ Made by Filipe Rubin and Felipe Brocker.
 
 Caça e Caçador (**Hunt and Hunter** in english) is a simple OpenGL project containing simple concepts about Artificial Intelligence and State Machines.
 
+# How it was made
+First of all, we decided to make the project in **C++/OpenGL** since it's easy to work with WHILE having a good understanding of what is going on. It can sound stupid to call **C++** and **OpenGL** easy, but while higher-level languages are actually easier, you don't understand so much about what is going on and how it all works.
+
+After creating the project and making the initial setup (like creating a window and all) we've *"adapted"* the coordinate system to suit our needs using the **Vertex Shader**: We've made so that a square that would fill a whole quarter of the screen will now only be drawn in 1/30 of the full screen (so we can draw 30x30 squares and draw our grid).
+```glsl
+layout(location = 0) in vec2 vPos;
+
+uniform vec2 cellPos;
+
+void main()
+{
+    vec4 finalPos = vec4((vPos.x / 15.0) - 1.0 + (cellPos.x / 15.0), (vPos.y / 15.0) - 1.0 + (cellPos.y / 15.0), 0.0, 1.0);
+    gl_Position = finalPos;
+}
+```
+We've made each square drawn to be of contrasting colors so it looks like a checkboard. But a screen filled with contrasting squares can be annoying to look at, so we've drawn it using `GL_LINE_LOOP` instead of `GL_TRIANGLE_FAN`.
+
 # Diagram
 ![Diagram](Images/diagrama.png)
 
