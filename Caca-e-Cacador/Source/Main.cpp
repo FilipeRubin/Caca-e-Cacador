@@ -170,7 +170,11 @@ void main()
 	float stepTime = 3.0f;
 	
 	unsigned long long int stepCount = 0ULL;
-
+	
+#ifdef FUN
+	glfwSwapInterval(0);
+#endif
+	
 	while (!glfwWindowShouldClose(pWindow))
 	{
 		stepTime -= GetDeltaTime();
@@ -185,7 +189,7 @@ void main()
 #ifndef FUN
 			stepTime = 0.2f;
 #else
-			stepTime = 0.0000001f;
+			stepTime = 0.000000000000000000000000000000000000000000001f;
 #endif
 			stepCount++;
 			
